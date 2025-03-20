@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top-side">
+        <div class="left-side">
+          <i class="fa-solid fa-calculator"></i>
+          <p>calculator</p>
+        </div>
+        <div class="right-side">
+          <i class="fa-solid fa-minus"></i>
+          <i class="fa-solid fa-credit-card"></i>
+          <i class="fa-solid fa-x"></i>
+        </div>
+      </div>
+      <div class="top-side2">
+        <div class="left-part">
+          <i class="fa-solid fa-bars"></i>
+          <h3><strong>Standard</strong></h3>
+          <i class="fa-solid fa-maximize"></i>
+        </div>
+        <div class="right-part">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+      </div>
+      <input type="text" name="" id="firstInput" class="firstInp">
+      <input type="text" name="" id="secondInput" placeholder="0">
+      <div class="top-signs">
+        <h4>MC</h4>
+        <h4>MR</h4>
+        <h4>M+</h4>
+        <h4>M-</h4>
+        <h4>MS</h4>
+        <h4>M-</h4>
+      </div>
+      <div class="numbers">
+        <button onclick="operators('%')">%</button>
+        <button onclick="clearAll()">CE</button>
+        <button onclick="clearInput()">C</button>
+        <button onclick="deleteLast()">←</button>
+        <button onclick="operators('1/x')">1/x</button>
+        <button onclick="operators('x^2')">x²</button>
+        <button onclick="operators('√')">√</button>
+        <button onclick="operators('/')">÷</button>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="operators('*')">×</button>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="operators('-')">−</button>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="operators('+')">+</button>
+        <button onclick="operators('±')">±</button>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendNumber()">.</button>
+        <button onclick="equals()">=</button>
+      </div>
+
+    </div>
+  </body>
+
+
+  <script>
+    let getFirstval;
+    let oper = "";
+    let canClear = false;
+
+    function appendNumber(num){
+      if (canClear){
+        secondInput.value = ''
+        canClear = false
+      }
+      // const secondInput = document.getElementById("secondInput")
+      // console.log(num);
+
+      secondInput.value += num;
+    };
+
+    function clearAll(){
+      // const secondInput = document.getElementById("secondInput")
+      secondInput.value = '';
+      firstInput.value = '';
+    };
+
+    function clearInput(){
+      const secondInput = document.getElementById("secondInput");
+      secondInput.value = '';
+
+    };
+    function deleteLast() {
+      const secondInput = document.getElementById("secondInput");
+      secondInput.value = secondInput.value.slice(0, 1);
+
+    };
+    function operators(message) {
+      getFirstval = secondInput.value;
+      oper = message;
+      canClear = true;
+
+      firstInput.value = getFirstval + oper;
+    };
+
+    function equals(){
+      if (oper== '+') {
+        firstInput.value = getFirstval + '+' + secondInput.value + "="
+        secondInput.value = Number(getFirstval) + Number(secondInput.value)
+      }
+      else if (oper== '-'){
+        firstInput.value = getFirstval + '-' + secondInput.value + "="
+        secondInput.value = Number(getFirstval) - Number(secondInput.value)
+      }
+      else if (oper== '*'){
+        firstInput.value = getFirstval + '*' + secondInput.value + "="
+        secondInput.value = Number(getFirstval) * Number(secondInput.value)
+      }
+      else if (oper== '÷'){
+        firstInput.value = getFirstval + '÷' + secondInput.value + "="
+        secondInput.value = Number(getFirstval) / Number(secondInput.value)
+      }
+      else if (oper== '√'){
+        firstInput.value =  '√' + secondInput.value + "="
+        secondInput.value = Number(Math.sqrt(getFirstval));
+      }
+      else if (oper== 'x^2'){
+        firstInput.value =  '^' + secondInput.value + "="
+        secondInput.value = Number(getFirstval) * Number(secondInput.value)
+    };
+  }
+  </script>
+</html>

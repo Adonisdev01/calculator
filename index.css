@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    position: relative;;
+    width: 330px;
+    height: 470px;
+    background-color: burlywood;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 100px auto;
+    /* box-shadow: 5px 5px black; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.top-side{
+    display: flex;
+    justify-content: space-between;
+}
+.fa-solid{
+    padding: 10px 10px;
+}
+.left-side p{
+    position: absolute;
+    top: 6px;
+    left: 30px;
+    font-size: 20px;
+}
+.top-side2{
+    display: flex;
+    justify-content: space-between;
+}
+.left-part{
+    display: flex;
+}
+.left-part h3{
+    position: absolute;
+    top: 40px;
+    left: 36px;
+}
+.fa-maximize{
+    position: absolute;
+    left: 110px;
+}
+/* .white-side{
+    position: absolute;
+    width: 270px;
+    height: 28px;
+    background-color: white;
+    border-radius: 4px;
+    left: 14px;
+    top: 90px;
+} */
+.firstInp{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    background-color: white;
+    border-radius: 4px;
+    left: 14px;
+    top: 84px;
+    border: none;
+    text-align: right;
+}
+#secondInput{
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    background-color: white;
+    border-radius: 4px;
+    left: 14px;
+    top: 130px;
+    border: none;
+    text-align: right;
+}
+.top-signs{
+    position: absolute;
+    display: flex;
+    position: absolute;
+    gap: 1.8em;
+    top: 170px;
+    padding: 10px 14px;
+}
+.numbers{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    margin-top: 140px;
+}
+.numbers button{
+    background-color: white;
+    width: 70px;
+    height: 35px;
+    margin: auto;
+    margin-bottom: 4px;
+    border-radius: 7px;
+}
+.numbers button:hover{
+    background-color: rgba(255, 255, 255, 0.384);
+}
